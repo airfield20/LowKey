@@ -47,7 +47,11 @@ public class CraigslistScraper {
             if (li.contains("data-ids=\"1:")) {
                 stim = li.indexOf("data-ids=\"1:") + "data-ids=\"1:".length();
                 enim = li.indexOf(",", li.indexOf("data-ids=\"1:"));
-                imgUrl = "https://images.craigslist.org/" + li.substring(stim, stim + 17) + "_600x450.jpg";
+                String substr = li.substring(stim, stim + 17);
+                if(substr.charAt(substr.length() - 1) == ','){
+                    substr = substr.substring(0, substr.length()-2);
+                }
+                imgUrl = "https://images.craigslist.org/" + substr + "_600x450.jpg";
             }
         } catch (Exception e) {
             e.toString();
@@ -106,7 +110,7 @@ public class CraigslistScraper {
         return response;
     }
 
-    static class SaleItem {
+    public static class SaleItem {
         private String name;
         private String cost;
         private String imgUrl;
