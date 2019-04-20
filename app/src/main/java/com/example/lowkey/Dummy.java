@@ -2,6 +2,7 @@ package com.example.lowkey;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.scraper.CraigslistScraper;
 
 public class Dummy extends AppCompatActivity {
 
