@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item android:id="@+id/action_settings"
+        android:title="View Note"
+    app:showAsAction="never"/>
+
+    <item android:id="@+id/new_notes"
+        android:title="New Note"
+        app:showAsAction="never"
+        />
+
+    <item android:id="@+id/change_pass"
+        android:title = "Change Passcode"
+        app:showAsAction="never" />
+</menu>
