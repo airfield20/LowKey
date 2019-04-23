@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         String correct_passcode = sharedPreferences.getString("password", "0000");
         if(passcode.getText().toString().equals(correct_passcode)){
             System.out.println("Correct password entered!");
-            Intent intent = new Intent (this, Notepad.class);
+            Intent intent = new Intent (this, Notepad2.class);
             startActivity(intent);
         }
         else{

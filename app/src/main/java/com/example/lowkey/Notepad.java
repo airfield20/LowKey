@@ -4,12 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,15 +25,15 @@ public class Notepad extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                notenum++;
-                Save("Note1.txt");
-                EditTxtNote.setText("");
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                notenum++;
+//                Save("Note1.txt");
+//                EditTxtNote.setText("");
+//            }
+//        });
 
         EditTxtNote = (EditText) findViewById(R.id.noteEditText);
     }
@@ -49,7 +47,7 @@ public class Notepad extends AppCompatActivity {
 
     public void Save(String fileName) {
         try {
-
+            SharedPreferences notesPage = getApplicationContext().getSharedPreferences("Notes", Context.MODE_PRIVATE);
              notesPage.edit().putString(fileName, EditTxtNote.getText().toString()).commit();
             Toast.makeText(this, "Note saved!", Toast.LENGTH_SHORT).show();
         } catch (Throwable t) {
@@ -68,13 +66,12 @@ public class Notepad extends AppCompatActivity {
         int id = item.getItemId();
 switch (id) {
 
-    case R.id.action_settings:
+    case R.id.change_query:
         //user chose the "list notes" item
+        SharedPreferences notesPage = getApplicationContext().getSharedPreferences("Notes", Context.MODE_PRIVATE);
         EditTxtNote.setText(notesPage.getString("Note1.txt", "DNE"));
         return true;
-    case R.id.new_notes:
-        Toast.makeText(this, "Return to Notepad and enter new text!", Toast.LENGTH_SHORT).show();
-        return true;
+
     case R.id.change_pass:
         Intent newerIntent = new Intent(Notepad.this, ChangPassword.class);
         Notepad.this.startActivity(newerIntent);

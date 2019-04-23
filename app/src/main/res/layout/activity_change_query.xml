@@ -7,38 +7,38 @@
     tools:context=".ChangPassword">
 
     <TextView
-        android:id="@+id/promptChangePassword"
+        android:id="@+id/promptChangeQuery"
         android:layout_width="411dp"
         android:layout_height="61dp"
-        android:text="Enter 4 Digit Passcode"
+        android:text="Enter Craigslist search"
         android:textAlignment="center"
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/passEditText"
+        app:layout_constraintBottom_toTopOf="@+id/queryEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/passEditText"
+        android:id="@+id/queryEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/passButton"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/querySaveButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/promptChangePassword" />
+        app:layout_constraintTop_toBottomOf="@+id/promptChangeQuery" />
 
     <Button
-        android:id="@+id/passButton"
+        android:id="@+id/querySaveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Passcode"
+        android:text="Save new query"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/queryEditText" />
 </android.support.constraint.ConstraintLayout>

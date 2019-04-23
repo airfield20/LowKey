@@ -17,22 +17,22 @@ public class ChangPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chang_password);
 
-        final Button passBtn = (Button)findViewById(R.id.passButton);
+        final Button passBtn = (Button) findViewById(R.id.passButton);
         passBtn.setOnClickListener(new View.OnClickListener() {
-            EditText editPass = (EditText)findViewById(R.id.passEditText);
+            EditText editPass = (EditText) findViewById(R.id.passEditText);
+
             @Override
             public void onClick(View v) {
                 String newPassCode = editPass.getText().toString();
-                if (newPassCode.length() ==4 )
-                {
+                if (newPassCode.length() == 4) {
                     SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("settings", Context.MODE_PRIVATE);
 
-                     sharedPreferences.edit().putString("password", newPassCode ).commit();
+                    sharedPreferences.edit().putString("password", newPassCode).commit();
                     Toast.makeText(getApplicationContext(), "New passcode set!", Toast.LENGTH_SHORT).show();
 
-                    Intent newerIntent = new Intent(ChangPassword.this, Notepad.class);
-                    ChangPassword.this.startActivity(newerIntent);                }
-                else {
+                    Intent newerIntent = new Intent(ChangPassword.this, Notepad2.class);
+                    ChangPassword.this.startActivity(newerIntent);
+                } else {
                     Toast.makeText(getApplicationContext(), "4 DIGITS ONLY! TRY AGAIN!", Toast.LENGTH_SHORT).show();
 
 
