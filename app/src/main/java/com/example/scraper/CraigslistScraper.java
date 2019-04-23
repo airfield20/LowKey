@@ -18,7 +18,8 @@ public class CraigslistScraper {
     public static ArrayList<SaleItem> query_craigslist(String query){
         String html = getCraigslistPage(query);
         html = html.substring(html.indexOf("<div class=\"content\""), html.indexOf("<div class=\"search-legend bottom\""));
-        html = html.substring(html.indexOf("<ul class=\"rows\""), html.indexOf("</ul") + 5);
+
+        html = html.substring(html.indexOf("<ul class=\"rows\""), html.indexOf("</ul",html.indexOf("<ul class=\"rows\"")) + 5);
         return getListItems(html);
     }
 
